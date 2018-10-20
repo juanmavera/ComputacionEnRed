@@ -2,7 +2,7 @@ import numpy as np
 import re
 
 from urllib import urlopen
-
+from time import strftime
 
 class DataObtainer():
     def __init__(self):
@@ -10,7 +10,7 @@ class DataObtainer():
 
     def get_web(self):
         page = urlopen(self.web).read()
-        # print(page)
+
         return page
 
     def get_clics(self, page):
@@ -20,12 +20,9 @@ class DataObtainer():
         listaClics = listaClics[5:]
         Clics = np.zeros(np.array(listaClics).shape[0])
 
-        # print('\nClics obtenidos\n---------------\n')
-
         for index, lista in enumerate(listaClics):
             aux = str(lista).split(' ')
             Clics[index] = int(aux[2])
-            # print(Clics[index])
 
         return Clics
 
@@ -35,11 +32,8 @@ class DataObtainer():
         listaMeneos = patronMeneos.findall(page)
         Meneos = np.zeros(np.array(listaMeneos).shape[0])
 
-        # print('\nMeneos Obtenidos\n----------------\n')
-
         for index, lista in enumerate(listaMeneos):
             Meneos[index] = int(lista[1])
-            # print(Meneos[index])
 
         return Meneos
 
@@ -48,12 +42,13 @@ class DataObtainer():
         listaNews = patronNews.findall(page)
         News = np.array(listaNews)[:, 1]
 
-        # print('\nTitulos Obtenidos\n-----------------\n')
-        #
-        # for index, lista in enumerate(listaNews):
-        #     print(str(News[index]))
-
         return News
+
+    def get_date(self):
+        date = strftime("%d/%B/%Y")
+        time = strftime("%H:%M:%S")
+
+        return date, time
 
     def get_web_data(self, page):
 
@@ -66,12 +61,8 @@ class DataObtainer():
         # Obteniendo Titulos
         News = self.get_news(page)
 
-        Datos = zip(list(Clicks), list(Meneos), list(News))
-        Datos = np.array(Datos)
+        # Obteniendo Hora
+        date, time = self.get_date()
 
-        # for _, data in enumerate(Datos):
-        #     print(data)
-
-        Noticia = Datos[0, :]           # Solo se almacena la primera noticia encontrada
-
-        return Noticia
+        # Solo se devuelven los datos de la primera noticia encontrada
+        return Clicks[0], Meneos[0], News[0], date, time
