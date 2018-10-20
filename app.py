@@ -4,7 +4,7 @@ import re
 from flask import Flask
 from urllib import urlopen
 
-class webHandler():
+class DataObtainer():
     def __init__(self):
         self.web = 'https://www.meneame.net/'
 
@@ -13,7 +13,7 @@ class webHandler():
         # print(page)
         return page
 
-    def get_data(self, page):
+    def get_web_data(self, page):
 
         # Obteninendo Clics
         patronClics = re.compile('<div class="clics">(.*?)</div>')
@@ -64,9 +64,9 @@ def location():
 
 if __name__ == '__main__':
 
-    WWW = webHandler()
-    page = WWW.get_web()
-    WWW.get_data(page)
+    Data = DataObtainer()
+    page = Data.get_web()
+    Data.get_web_data(page)
 
     # app.debug = True
     # app.run(host='0.0.0.0')
