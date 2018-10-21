@@ -1,6 +1,7 @@
 from flask import Flask
 from DataObtainer import *
 from MongoHandler import *
+from BeebotteHandler import *
 
 import threading
 import time
@@ -16,6 +17,9 @@ def InitPeriodicDataObtainer():
     mongoDB = MongoHandler()
     mongoDB.InsertNew(Noticia)
 
+    bbtDB = BeebotteHandler()
+    bbtDB.InsertNew(Noticia)
+    
     print("Clicks: %d || Meneos: %d || Noticia: %s || Fecha: %s || Hora: %s\n" % (int(float(Noticia[0])), int(float(Noticia[1])), str(Noticia[2]), str(Noticia[3]), str(Noticia[4])))
 
     threading.Timer(120, InitPeriodicDataObtainer).start()
