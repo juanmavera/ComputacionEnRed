@@ -17,32 +17,53 @@ class BeebotteHandler():
 
 
     def LeerNoticias(self):
+        Clicsparcial = []
         Clics = []
+
+        Meneosparcial = []
         Meneos = []
+
+        Noticiasparcial = []
         Noticias = []
+
+        Fechasparcial = []
         Fechas = []
+
+        Horasparcial = []
         Horas = []
 
         TotalClics = self.client.read(self.channel, 'Clics', 1000)
         for clic in TotalClics:
-            Clics.append(clic['data'])
+            Clicsparcial.append(clic['data'])
 
         TotalMeneos = self.client.read(self.channel, 'Meneos', 1000)
         for meneo in TotalMeneos:
-            Meneos.append(meneo['data'])
+            Meneosparcial.append(meneo['data'])
 
         TotalNoticias = self.client.read(self.channel, 'Noticia', 1000)
         for noticia in TotalNoticias:
-            Noticias.append(noticia['data'])
+            Noticiasparcial.append(noticia['data'])
+
         TotalFechas = self.client.read(self.channel, 'Fecha', 1000)
         for fecha in TotalFechas:
-            Fechas.append(fecha['data'])
+            Fechasparcial.append(fecha['data'])
+
         TotalHoras = self.client.read(self.channel, 'Hora', 1000)
-
         for hora in TotalHoras:
-            Horas.append(hora['data'])
+            Horasparcial.append(hora['data'])
 
-        for index in range(len(Clics)):
-            print(Noticias[index])
+        print(len(Clicsparcial))
+        
+        for index in range(len(Clicsparcial)):
+            if index == 0:
+                NoticiaAux = Noticiasparcial[index]
+
+            elif NoticiaAux is not Noticiasparcial[index]:
+                Clics.append(Clicsparcial[index - 1])
+                Meneos.append(Meneosparcial[index - 1])
+                Noticias.append(Noticiasparcial[index - 1])
+                Fechas.append(Fechasparcial[index - 1])
+                Horas.append(Horasparcial[index - 1])
+                NoticiaAux = Noticiasparcial[index])
 
         return Clics, Meneos, Noticias, Fechas, Horas
