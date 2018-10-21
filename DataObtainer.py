@@ -4,6 +4,7 @@ import re
 from urllib import urlopen
 from time import strftime
 
+
 class DataObtainer():
     def __init__(self):
         self.web = 'https://www.meneame.net/'
