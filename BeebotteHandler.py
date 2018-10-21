@@ -53,7 +53,10 @@ class BeebotteHandler():
             Horasparcial.append(hora['data'])
 
         print(len(Clicsparcial))
+        print(len(Meneosparcial))
         print(len(Noticiasparcial))
+        print(len(Fechasparcial))
+        print(len(Horasparcial))
 
         for index in range(0, len(Clicsparcial)-1):
             # print(index)
