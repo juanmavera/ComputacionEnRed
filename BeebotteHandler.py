@@ -58,8 +58,8 @@ class BeebotteHandler():
             if index == 0:
                 NoticiaAux = Noticiasparcial[index]
 
-            print(NoticiaAux)
-            print(Noticiasparcial[index])
+            # print(NoticiaAux)
+            # print(Noticiasparcial[index])
 
             if NoticiaAux != Noticiasparcial[index]:
                 print(index)
@@ -69,6 +69,5 @@ class BeebotteHandler():
                 Fechas.append(Fechasparcial[index - 1])
                 Horas.append(Horasparcial[index - 1])
                 NoticiaAux = Noticiasparcial[index]
-
 
         return Clics, Meneos, Noticias, Fechas, Horas
