@@ -1,3 +1,5 @@
+import numpy as np
+
 from pymongo import MongoClient
 
 
@@ -24,5 +26,22 @@ class MongoHandler():
         #     print(doc)
 
     def LeerNoticias(self):
+        Clics = []
+        Meneos = []
+        Noticias = []
+        Fechas = []
+        Horas = []
         for New in self.db.noticias.find():
-            print(New['Noticia'])
+            Clics.append(New['Clics'])
+            Meneos.append(New['Meneos'])
+            Noticias.append(New['Noticia'])
+            Fechas.append(New['Fecha'])
+            Horas.append(New['Hora'])
+
+        Clics = np.array(Clics)
+        Meneos = np.array(Meneos)
+        Noticias = np.array(Noticias)
+        Fechas = np.array(Fechas)
+        Horas = np.array(Horas)
+
+        return Clics, Meneos, Noticias, Fechas, Horas
