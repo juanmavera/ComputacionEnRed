@@ -54,12 +54,10 @@ class BeebotteHandler():
 
         Noticia = zip(Clicsparcial, Meneosparcial, Noticiasparcial, Fechasparcial, Horasparcial, Fechasparcial)
         print(len(Noticia))
+        NewAnt = ''
+        
         for index, noticia in enumerate(Noticia):
             print(noticia[2])
-
-            if index == 0:
-                NewAnt = noticia[2]
-
             if NewAnt != noticia[2]:
 
                 Clics.append(noticia[0])
