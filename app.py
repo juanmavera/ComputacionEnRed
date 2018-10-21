@@ -31,17 +31,18 @@ def CalculaMedia(Mongo=True):
         mongoDB = MongoHandler()
         Noticias = mongoDB.LeerNoticias()
 
-        # Noticias = np.array(Noticias)
+    else:
+        bbtDB = BeebotteHandler()
+        # Noticias = bbtDB.LeerNoticias()
+        bbtDB.LeerNoticias()
+        
+    mediaClics = np.mean(Noticias[0])
+    mediaMeneos = np.mean(Noticias[1])
 
-        mediaClics = np.mean(Noticias[0])
-        mediaMeneos = np.mean(Noticias[1])
-
-        # print(Noticias[1])
-
-        print('Numero medio de clics obtenidos: %.2f\n'
-              'Numero medio de meneos obtenidos: %.2f\n'
-              'Numero de noticias: %d\n'
-              % (mediaClics, mediaMeneos, len(Noticias[2])))
+    print('Numero medio de clics obtenidos: %.2f\n'
+          'Numero medio de meneos obtenidos: %.2f\n'
+          'Numero de noticias: %d\n'
+          % (mediaClics, mediaMeneos, len(Noticias[2])))
 
 
 @app.route('/')
