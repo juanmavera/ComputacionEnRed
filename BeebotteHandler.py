@@ -67,6 +67,6 @@ class BeebotteHandler():
                 Horas.append(Horasparcial[index - 1])
                 NoticiaAux = Noticiasparcial[index]
 
-            print(NoticiaAux, Noticiasparcial[index])
+                print(NoticiaAux, Noticiasparcial[index])
 
         return Clics, Meneos, Noticias, Fechas, Horas
