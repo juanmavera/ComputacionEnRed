@@ -1,6 +1,6 @@
 from beebotte import *
 
-class BeebotteHandler()
+class BeebotteHandler():
     def __init__(self):
         self.api_key = 'QNMGqaXUTizwYJC7ly4rCswl'
         self.secret_key = 'hUVA4I7F76tIWIYW4qpx3jZRPdrxt7Sg'
