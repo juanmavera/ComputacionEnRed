@@ -59,11 +59,14 @@ class BeebotteHandler():
                 NoticiaAux = Noticiasparcial[index]
 
             elif NoticiaAux is not Noticiasparcial[index]:
+                print(index)
                 Clics.append(Clicsparcial[index - 1])
                 Meneos.append(Meneosparcial[index - 1])
                 Noticias.append(Noticiasparcial[index - 1])
                 Fechas.append(Fechasparcial[index - 1])
                 Horas.append(Horasparcial[index - 1])
                 NoticiaAux = Noticiasparcial[index]
+
+            print(NoticiaAux, Noticiasparcial[index])
 
         return Clics, Meneos, Noticias, Fechas, Horas
