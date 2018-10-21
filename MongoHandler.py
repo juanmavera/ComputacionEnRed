@@ -32,11 +32,11 @@ class MongoHandler():
         Fechas = []
         Horas = []
         for New in self.db.noticias.find():
-            Clics.append(New['Clics'])
-            Meneos.append(New['Meneos'])
-            Noticias.append(New['Noticia'])
-            Fechas.append(New['Fecha'])
-            Horas.append(New['Hora'])
+            Clics.append(int(float(New['Clics'])))
+            Meneos.append(int(float(New['Meneos'])))
+            Noticias.append(str(New['Noticia']))
+            Fechas.append(str(New['Fecha']))
+            Horas.append(str(New['Hora']))
 
         Clics = np.array(Clics)
         Meneos = np.array(Meneos)
