@@ -33,9 +33,8 @@ def CalculaMedia(Mongo=True):
 
     else:
         bbtDB = BeebotteHandler()
-        # Noticias = bbtDB.LeerNoticias()
-        bbtDB.LeerNoticias()
-
+        Noticias = bbtDB.LeerNoticias()
+        
     mediaClics = np.mean(Noticias[0])
     mediaMeneos = np.mean(Noticias[1])
 
