@@ -34,7 +34,6 @@ class BeebotteHandler():
 
         TotalClics = self.client.read(self.channel, 'Clics', 1000)
         for clic in TotalClics:
-            print(clic['data'])
             Clicsparcial.append(clic['data'])
 
         TotalMeneos = self.client.read(self.channel, 'Meneos', 1000)
@@ -43,6 +42,7 @@ class BeebotteHandler():
 
         TotalNoticias = self.client.read(self.channel, 'Noticia', 1000)
         for noticia in TotalNoticias:
+            print(noticia['data'])
             Noticiasparcial.append(noticia['data'])
 
         TotalFechas = self.client.read(self.channel, 'Fecha', 1000)
