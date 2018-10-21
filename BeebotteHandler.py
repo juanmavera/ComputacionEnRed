@@ -9,14 +9,14 @@ class BeebotteHandler():
 
     def InsertNew(self, New):
 
-        print('\nComprobando Noticia\n')
+        # print('\nComprobando Noticia\n')
         self.client.write(self.channel, 'Clics', New[0])
         self.client.write(self.channel, 'Meneos', New[1])
         self.client.write(self.channel, 'Noticia', New[2])
         self.client.write(self.channel, 'Fecha', New[3])
         self.client.write(self.channel, 'Hora', New[4])
 
-        print('\nBase de Datos Beebotte\n')
+        # print('\nBase de Datos Beebotte\n')
         Clics = self.client.read(self.channel, 'Clics', 1000)
         Meneos = self.client.read(self.channel, 'Meneos', 1000)
         Noticia = self.client.read(self.channel, 'Noticia', 1000)
