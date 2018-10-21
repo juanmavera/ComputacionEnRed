@@ -38,10 +38,10 @@ class MongoHandler():
             Fechas.append(New['Fecha'])
             Horas.append(New['Hora'])
 
-        Clics = np.array(Clics)
-        Meneos = np.array(Meneos)
-        Noticias = np.array(Noticias)
-        Fechas = np.array(Fechas)
-        Horas = np.array(Horas)
+        # Clics = np.array(Clics)
+        # Meneos = np.array(Meneos)
+        # Noticias = np.array(Noticias)
+        # Fechas = np.array(Fechas)
+        # Horas = np.array(Horas)
 
         return Clics, Meneos, Noticias, Fechas, Horas
