@@ -23,11 +23,11 @@ class BeebotteHandler():
         Fecha = self.client.read(self.channel, 'Fecha', 1000)
         Hora = self.client.read(self.channel, 'Hora', 1000)
 
-        print(Clics)
-        print(Meneos)
-        print(Noticia)
-        print(Fecha)
-        print(Hora)
+        # print(Clics)
+        # print(Meneos)
+        # print(Noticia)
+        # print(Fecha)
+        # print(Hora)
 
         # for index, _ in enumerate(Clics):
         #     print('%d || %d || %s || %s || %s' % (Clics[index], Meneos[index], Noticia[index], Fecha[index], Hora[index]))
