@@ -54,7 +54,7 @@ class BeebotteHandler():
 
         Noticia = zip(Clicsparcial, Meneosparcial, Noticiasparcial, Fechasparcial, Horasparcial, Fechasparcial)
 
-        for index, cilc, meneo, noticia, hora, fecha in enumerate(Noticia):
-            print(index, cilc, meneo, noticia, hora, fecha)
+        for noticia in Noticia:
+            print(noticia)
 
         return Clics, Meneos, Noticias, Fechas, Horas
