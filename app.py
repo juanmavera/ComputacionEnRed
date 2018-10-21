@@ -33,10 +33,13 @@ def CalculaMedia(Mongo=True):
 
         Noticias = np.array(Noticias)
 
-        # media = np.mean(Noticias[0, :], axis=0)
+        media = np.mean(Noticias[0, :], axis=0)
 
-        print(int(Noticias[0, :]))
+        # print(int(Noticias[0, :]))
 
+        print(media)
+
+        
 @app.route('/')
 def index():
     Data = DataObtainer()
