@@ -42,7 +42,6 @@ class BeebotteHandler():
 
         TotalNoticias = self.client.read(self.channel, 'Noticia', 1000)
         for noticia in TotalNoticias:
-            print(noticia['data'])
             Noticiasparcial.append(noticia['data'])
 
         TotalFechas = self.client.read(self.channel, 'Fecha', 1000)
@@ -62,9 +61,9 @@ class BeebotteHandler():
         for index in range(0, len(Noticiasparcial)-1):
             # print(index)
             if index == 0:
-                NoticiaAux = Noticiasparcial[index]
+                NoticiaAux = Noticiasparcial[index, :]
 
-            if NoticiaAux != Noticiasparcial[index]:
+            if NoticiaAux != Noticiasparcial[index, :]:
 
                 # print(NoticiaAux)
                 # print(Noticiasparcial[index - 1])
