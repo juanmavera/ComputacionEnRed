@@ -69,15 +69,15 @@ class BeebotteHandler():
 
                 NewAnt = noticia[2]
 
-            if index == len(Noticia)-1:
-
-                # print(index, noticia[0], noticia[1], noticia[2], noticia[3], noticia[4])
-
-                Clics.append(noticia[0])
-                Meneos.append(noticia[1])
-                Noticias.append(noticia[2])
-                Fechas.append(noticia[3])
-                Horas.append(noticia[4])
+            # if index == len(Noticia)-1:
+            #
+            #     # print(index, noticia[0], noticia[1], noticia[2], noticia[3], noticia[4])
+            #
+            #     Clics.append(noticia[0])
+            #     Meneos.append(noticia[1])
+            #     Noticias.append(noticia[2])
+            #     Fechas.append(noticia[3])
+            #     Horas.append(noticia[4])
 
 
         return Clics, Meneos, Noticias, Fechas, Horas
