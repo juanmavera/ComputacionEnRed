@@ -17,11 +17,11 @@ class BeebotteHandler():
         self.client.write(self.channel, 'Hora', New[4])
 
         print('\nBase de Datos Beebotte\n')
-        Clics = self.client.read(self.channel, 'Clics', New[0])
-        Meneos = self.client.read(self.channel, 'Meneos', New[1])
-        Noticia = self.client.read(self.channel, 'Noticia', New[2])
-        Fecha = self.client.read(self.channel, 'Fecha', New[3])
-        Hora = self.client.read(self.channel, 'Hora', New[4])
+        Clics = self.client.read(self.channel, 'Clics', 1000)
+        Meneos = self.client.read(self.channel, 'Meneos', 1000)
+        Noticia = self.client.read(self.channel, 'Noticia', 1000)
+        Fecha = self.client.read(self.channel, 'Fecha', 1000)
+        Hora = self.client.read(self.channel, 'Hora', 1000)
 
         for index, _ in enumerate(Clics):
             print('%d || %d || %s || %s || %s' % (Clics[index], Meneos[index], Noticia[index], Fecha[index], Hora[index]))
