@@ -56,8 +56,8 @@ class BeebotteHandler():
             if index == 0:
                 NoticiaAux = Noticiasparcial[index]
 
-            # print(NoticiaAux)
-            # print(Noticiasparcial[index])
+            print(NoticiaAux)
+            print(Noticiasparcial[index])
 
             if NoticiaAux != Noticiasparcial[index]:
 
