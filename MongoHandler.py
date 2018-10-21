@@ -25,5 +25,5 @@ class MongoHandler():
             self.db.noticias.update_one({'Noticia': New[2]}, entrada)
             print('Noticia actualizada')
 
-        for doc in db.noticias.find():
+        for doc in self.db.noticias.find():
             print(doc)
