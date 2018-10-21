@@ -42,4 +42,7 @@ class BeebotteHandler():
         for hora in TotalHoras:
             Horas.append(hora['data'])
 
+        for index in range(len(Clics)):
+            print(Noticias[index])
+
         return Clics, Meneos, Noticias, Fechas, Horas
