@@ -22,7 +22,7 @@ class MongoHandler():
             self.db.noticias.insert_one(entrada)
             print('Noticia Insertada')
         else:
-            self.db.noticias.update_one({'Noticia': New[2]}, entrada)
+            self.db.noticias.update_one({'Noticia': New[2]}, {'$inc': entrada})
             print('Noticia actualizada')
 
         for doc in self.db.noticias.find():
