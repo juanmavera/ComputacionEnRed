@@ -28,6 +28,6 @@ class BeebotteHandler():
         print(Noticia)
         print(Fecha)
         print(Hora)
-        
+
         # for index, _ in enumerate(Clics):
         #     print('%d || %d || %s || %s || %s' % (Clics[index], Meneos[index], Noticia[index], Fecha[index], Hora[index]))
