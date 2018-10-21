@@ -31,6 +31,8 @@ def CalculaMedia(Mongo=True):
         mongoDB = MongoHandler()
         Noticias = mongoDB.LeerNoticias()
 
+        Noticias = np.array(Noticias)
+
         # media = np.mean(Noticias[0, :], axis=0)
 
         print(Noticias)
