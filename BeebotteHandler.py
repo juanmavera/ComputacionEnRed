@@ -68,7 +68,7 @@ class BeebotteHandler():
                 Horas.append(Horasparcial[index - 1])
                 NoticiaAux = Noticiasparcial[index]
 
-            if index == len(Clicsparcial):
+            if index == len(Clicsparcial) - 1:
 
                 Clics.append(Clicsparcial[index])
                 Meneos.append(Meneosparcial[index])
