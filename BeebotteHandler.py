@@ -15,11 +15,6 @@ class BeebotteHandler():
         self.client.write(self.channel, 'Fecha', New[3])
         self.client.write(self.channel, 'Hora', New[4])
 
-        Clics = self.client.read(self.channel, 'Clics', 1000)
-        Meneos = self.client.read(self.channel, 'Meneos', 1000)
-        Noticia = self.client.read(self.channel, 'Noticia', 1000)
-        Fecha = self.client.read(self.channel, 'Fecha', 1000)
-        Hora = self.client.read(self.channel, 'Hora', 1000)
 
     def LeerNoticias(self):
         Clics = []
@@ -29,11 +24,22 @@ class BeebotteHandler():
         Horas = []
 
         TotalClics = self.client.read(self.channel, 'Clics', 1000)
+        for clic in TotalClics:
+            Clics.append(clic['data'])
+
         TotalMeneos = self.client.read(self.channel, 'Meneos', 1000)
-        TotalNoticia = self.client.read(self.channel, 'Noticia', 1000)
-        TotalFecha = self.client.read(self.channel, 'Fecha', 1000)
-        TotalHora = self.client.read(self.channel, 'Hora', 1000)
+        for meneo in TotalMeneos:
+            Meneos.append(meneo['data'])
 
-        Noticias = [TotalClics['data'], TotalMeneos['data'], TotalNoticia['data'], TotalFecha['data'], TotalHora['data']]
+        TotalNoticias = self.client.read(self.channel, 'Noticia', 1000)
+        for noticia in TotalNoticias:
+            Noticias.append(noticia['data'])
+        TotalFechas = self.client.read(self.channel, 'Fecha', 1000)
+        for fecha in TotalFechas:
+            Fechas.append(fecha['data'])
+        TotalHoras = self.client.read(self.channel, 'Hora', 1000)
 
-        print(Noticias)
+        for hora in TotalHoras:
+            Horas.append(hora['data'])
+
+        return Clics, Meneos, Noticias, Fechas, Horas
