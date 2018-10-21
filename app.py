@@ -40,7 +40,7 @@ def CalculaMedia(Mongo=True):
 
         print('Numero medio de clics obtenidos: %.2f\n'
               'Numero medio de meneos obtenidos: %.2f\n'
-              'Número de noticias: %d\n'
+              'Numero de noticias: %d\n'
               % (mediaClics, mediaMeneos, len(Noticias[2])))
 
 
