@@ -39,7 +39,7 @@ def CalculaMedia(Mongo=True):
 
         print(media)
 
-        
+
 @app.route('/')
 def index():
     Data = DataObtainer()
