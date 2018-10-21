@@ -82,4 +82,6 @@ class BeebotteHandler():
             Fechas.append(Fechasparcial[len(Noticiasparcial) - 1])
             Horas.append(Horasparcial[len(Noticiasparcial) - 1])
 
+            print(Noticias)
+
         return Clics, Meneos, Noticias, Fechas, Horas
