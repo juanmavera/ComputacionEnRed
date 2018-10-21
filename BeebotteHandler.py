@@ -34,6 +34,6 @@ class BeebotteHandler():
         TotalFecha = self.client.read(self.channel, 'Fecha', 1000)
         TotalHora = self.client.read(self.channel, 'Hora', 1000)
 
-        Noticias = [TotalClics, TotalMeneos, TotalNoticia, TotalFecha, TotalHora]
+        Noticias = [TotalClics['data'], TotalMeneos['data'], TotalNoticia['data'], TotalFecha['data'], TotalHora['data']]
 
         print(Noticias)
