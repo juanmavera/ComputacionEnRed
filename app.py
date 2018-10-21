@@ -39,6 +39,7 @@ def CalculaMedia(Mongo=True):
     print('\nNoticias\n--------\n')
     for noticia in Noticias[2]:
         print(noticia)
+
     print('\n\nEstadisticas\n------------\n')
     print('Numero medio de clics obtenidos: %.2f\n'
           'Numero medio de meneos obtenidos: %.2f\n'
