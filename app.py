@@ -35,7 +35,7 @@ def CalculaMedia(Mongo=True):
         bbtDB = BeebotteHandler()
         # Noticias = bbtDB.LeerNoticias()
         bbtDB.LeerNoticias()
-        
+
     mediaClics = np.mean(Noticias[0])
     mediaMeneos = np.mean(Noticias[1])
 
@@ -63,7 +63,7 @@ def location():
 if __name__ == '__main__':
 
     InitPeriodicDataObtainer()
-    CalculaMedia(Mongo=True)
+    CalculaMedia(Mongo=False)
 
     # app.debug = True
     # app.run(host='0.0.0.0')
