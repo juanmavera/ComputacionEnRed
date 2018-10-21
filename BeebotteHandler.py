@@ -9,25 +9,31 @@ class BeebotteHandler():
 
     def InsertNew(self, New):
 
-        # print('\nComprobando Noticia\n')
         self.client.write(self.channel, 'Clics', New[0])
         self.client.write(self.channel, 'Meneos', New[1])
         self.client.write(self.channel, 'Noticia', New[2])
         self.client.write(self.channel, 'Fecha', New[3])
         self.client.write(self.channel, 'Hora', New[4])
 
-        # print('\nBase de Datos Beebotte\n')
         Clics = self.client.read(self.channel, 'Clics', 1000)
         Meneos = self.client.read(self.channel, 'Meneos', 1000)
         Noticia = self.client.read(self.channel, 'Noticia', 1000)
         Fecha = self.client.read(self.channel, 'Fecha', 1000)
         Hora = self.client.read(self.channel, 'Hora', 1000)
 
-        # print(Clics)
-        # print(Meneos)
-        # print(Noticia)
-        # print(Fecha)
-        # print(Hora)
+    def LeerNoticias(self):
+        Clics = []
+        Meneos = []
+        Noticias = []
+        Fechas = []
+        Horas = []
 
-        # for index, _ in enumerate(Clics):
-        #     print('%d || %d || %s || %s || %s' % (Clics[index], Meneos[index], Noticia[index], Fecha[index], Hora[index]))
+        TotalClics = self.client.read(self.channel, 'Clics', 1000)
+        TotalMeneos = self.client.read(self.channel, 'Meneos', 1000)
+        TotalNoticia = self.client.read(self.channel, 'Noticia', 1000)
+        TotalFecha = self.client.read(self.channel, 'Fecha', 1000)
+        TotalHora = self.client.read(self.channel, 'Hora', 1000)
+
+        Noticias = [TotalClics, TotalMeneos, TotalNoticia, TotalFecha, TotalHora]
+
+        print(Noticias)
