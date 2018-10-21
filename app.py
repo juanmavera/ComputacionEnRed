@@ -5,6 +5,7 @@ from BeebotteHandler import *
 
 import threading
 import time
+import numpy as np
 
 app = Flask(__name__)
 
@@ -28,7 +29,11 @@ def InitPeriodicDataObtainer():
 def CalculaMedia(Mongo=True):
     if Mongo:
         mongoDB = MongoHandler()
-        mongoDB.LeerNoticias()
+        Noticias = mongoDB.LeerNoticias()
+
+        media = np.mean(Noticias[0, :], axis=0)
+
+        print(media)
 
 @app.route('/')
 def index():
