@@ -52,36 +52,9 @@ class BeebotteHandler():
         for hora in TotalHoras:
             Horasparcial.append(hora['data'])
 
-        # print(len(Clicsparcial))
-        # print(len(Meneosparcial))
-        # print(len(Noticiasparcial))
-        # print(len(Fechasparcial))
-        # print(len(Horasparcial))
+        Noticia = zip(Clicsparcial, Meneosparcial, Noticiasparcial, Fechasparcial, Horasparcial, Fechasparcial)
 
-        for index in range(0, len(Noticiasparcial)-1):
-            # print(index)
-            if index == 0:
-                NoticiaAux = Noticiasparcial[index, :]
-
-            if NoticiaAux != Noticiasparcial[index, :]:
-
-                # print(NoticiaAux)
-                # print(Noticiasparcial[index - 1])
-                # print(Noticiasparcial[index])
-
-                Clics.append(Clicsparcial[index - 1])
-                Meneos.append(Meneosparcial[index - 1])
-                Noticias.append(Noticiasparcial[index - 1])
-                Fechas.append(Fechasparcial[index - 1])
-                Horas.append(Horasparcial[index - 1])
-                NoticiaAux = Noticiasparcial[index]
-
-            Clics.append(Clicsparcial[len(Noticiasparcial) - 1])
-            Meneos.append(Meneosparcial[len(Noticiasparcial) - 1])
-            Noticias.append(Noticiasparcial[len(Noticiasparcial) - 1])
-            Fechas.append(Fechasparcial[len(Noticiasparcial) - 1])
-            Horas.append(Horasparcial[len(Noticiasparcial) - 1])
-
-            # print(Noticiasparcial)
-
+        for cilc, meneo, noticia, hora, fecha in Noticia:
+            print(cilc, meneo, noticia, hora, fecha)
+            
         return Clics, Meneos, Noticias, Fechas, Horas
