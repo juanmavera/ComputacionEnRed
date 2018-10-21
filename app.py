@@ -38,7 +38,10 @@ def CalculaMedia(Mongo=True):
 
         # print(Noticias[1])
 
-        print('Numero medio de clics obtenidos: %.2f\nNumero medio de meneos obtenidos: %.2f\n' % (mediaClics, mediaMeneos))
+        print('Numero medio de clics obtenidos: %.2f\n'
+              'Numero medio de meneos obtenidos: %.2f\n'
+              'Número de noticias: %d\n'
+              % (mediaClics, mediaMeneos, len(Noticias[2])))
 
 
 @app.route('/')
