@@ -20,7 +20,7 @@ def InitPeriodicDataObtainer():
     bbtDB = BeebotteHandler()
     bbtDB.InsertNew(Noticia)
 
-    print("Clicks: %d || Meneos: %d || Noticia: %s || Fecha: %s || Hora: %s\n" % (int(float(Noticia[0])), int(float(Noticia[1])), str(Noticia[2]), str(Noticia[3]), str(Noticia[4])))
+    # print("Clicks: %d || Meneos: %d || Noticia: %s || Fecha: %s || Hora: %s\n" % (int(float(Noticia[0])), int(float(Noticia[1])), str(Noticia[2]), str(Noticia[3]), str(Noticia[4])))
 
     threading.Timer(120, InitPeriodicDataObtainer).start()
 
@@ -49,6 +49,6 @@ if __name__ == '__main__':
 
     InitPeriodicDataObtainer()
     CalculaMedia(Mongo=True)
-    
+
     # app.debug = True
     # app.run(host='0.0.0.0')
