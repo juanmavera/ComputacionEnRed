@@ -34,11 +34,11 @@ def CalculaMedia(Mongo=True):
         # Noticias = np.array(Noticias)
 
         mediaClics = np.mean(Noticias[0])
-        # mediaMeneos = np.mean(Noticias[1])
+        mediaMeneos = np.mean(Noticias[1])
 
-        print(Noticias[0])
+        # print(Noticias[1])
 
-        # print('Número medio de clics obtenidos: %.2f\nNúmer medio de meneos obtenidos: %.2f\n' % (mediaClics, mediaMeneos))
+        print('Numero medio de clics obtenidos: %.2f\nNumero medio de meneos obtenidos: %.2f\n' % (mediaClics, mediaMeneos))
 
 
 @app.route('/')
