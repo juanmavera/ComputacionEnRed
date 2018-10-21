@@ -53,7 +53,7 @@ class BeebotteHandler():
             Horasparcial.append(hora['data'])
 
         Noticia = zip(Clicsparcial, Meneosparcial, Noticiasparcial, Fechasparcial, Horasparcial, Fechasparcial)
-
+        print(len(Noticia))
         for index, noticia in enumerate(Noticia):
             print(noticia[2])
 
