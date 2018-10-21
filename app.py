@@ -21,8 +21,6 @@ def InitPeriodicDataObtainer():
     bbtDB = BeebotteHandler()
     bbtDB.InsertNew(Noticia)
 
-    # print("Clicks: %d || Meneos: %d || Noticia: %s || Fecha: %s || Hora: %s\n" % (int(float(Noticia[0])), int(float(Noticia[1])), str(Noticia[2]), str(Noticia[3]), str(Noticia[4])))
-
     threading.Timer(120, InitPeriodicDataObtainer).start()
 
 
@@ -35,14 +33,13 @@ def CalculaMedia(Mongo=True):
         bbtDB = BeebotteHandler()
         Noticias = bbtDB.LeerNoticias()
 
-        # print(Noticias)
-
     mediaClics = np.mean(Noticias[0])
     mediaMeneos = np.mean(Noticias[1])
 
+    print('\nNoticias\n--------\n')
     for noticia in Noticias[2]:
         print(noticia)
-
+    print('Estadisticas\n------------\n')
     print('\nNumero medio de clics obtenidos: %.2f\n'
           'Numero medio de meneos obtenidos: %.2f\n'
           'Numero de noticias: %d\n'
