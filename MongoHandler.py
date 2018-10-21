@@ -16,9 +16,13 @@ class MongoHandler():
             'Hora': New[4]
         }
 
-        print('\nComprobando Noticia\n')
+        # print('\nComprobando Noticia\n')
         self.db.noticias.update_one({'Noticia': New[2]}, {'$set': entrada}, upsert=True) # si no hay match con la noticia la inserta
 
-        print('\nBase de Datos\n')
-        for doc in self.db.noticias.find():
-            print(doc)
+        # print('\nBase de Datos\n')
+        # for doc in self.db.noticias.find():
+        #     print(doc)
+
+    def LeerNoticias(self):
+        for New in self.db.noticias.find():
+            print(New['Noticia'])
