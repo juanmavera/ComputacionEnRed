@@ -67,6 +67,8 @@ class BeebotteHandler():
                 Fechas.append(noticia[3])
                 Horas.append(noticia[4])
 
+                NewAnt = noticia[2]
+
             if index == len(Noticia)-1:
 
                 print(index, noticia[0], noticia[1], noticia[2], noticia[3], noticia[4])
