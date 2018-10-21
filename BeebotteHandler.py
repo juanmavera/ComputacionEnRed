@@ -54,8 +54,8 @@ class BeebotteHandler():
 
         Noticia = zip(Clicsparcial, Meneosparcial, Noticiasparcial, Fechasparcial, Horasparcial, Fechasparcial)
         print(len(Noticia))
-        NewAnt = ''
-        
+        NewAnt = ' '
+
         for index, noticia in enumerate(Noticia):
             print(noticia[2])
             if NewAnt != noticia[2]:
