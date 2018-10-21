@@ -25,6 +25,11 @@ def InitPeriodicDataObtainer():
     threading.Timer(120, InitPeriodicDataObtainer).start()
 
 
+def CalculaMedia(Mongo=True):
+    if Mongo:
+        mongoDB = MongoHandler()
+        mongoDB.LeerNoticias()
+
 @app.route('/')
 def index():
     Data = DataObtainer()
@@ -43,6 +48,7 @@ def location():
 if __name__ == '__main__':
 
     InitPeriodicDataObtainer()
-
+    CalculaMedia(Mongo=True)
+    
     # app.debug = True
     # app.run(host='0.0.0.0')
