@@ -58,7 +58,7 @@ class BeebotteHandler():
         print(len(Fechasparcial))
         print(len(Horasparcial))
 
-        for index in range(0, len(Clicsparcial)-1):
+        for index in range(0, len(Noticiasparcial)-1):
             # print(index)
             if index == 0:
                 NoticiaAux = Noticiasparcial[index]
@@ -75,10 +75,10 @@ class BeebotteHandler():
                 Horas.append(Horasparcial[index - 1])
                 NoticiaAux = Noticiasparcial[index]
 
-            Clics.append(Clicsparcial[len(Clicsparcial) - 1])
-            Meneos.append(Meneosparcial[len(Clicsparcial) - 1])
-            Noticias.append(Noticiasparcial[len(Clicsparcial) - 1])
-            Fechas.append(Fechasparcial[len(Clicsparcial) - 1])
-            Horas.append(Horasparcial[len(Clicsparcial) - 1])
+            Clics.append(Clicsparcial[len(Noticiasparcial) - 1])
+            Meneos.append(Meneosparcial[len(Noticiasparcial) - 1])
+            Noticias.append(Noticiasparcial[len(Noticiasparcial) - 1])
+            Fechas.append(Fechasparcial[len(Noticiasparcial) - 1])
+            Horas.append(Horasparcial[len(Noticiasparcial) - 1])
 
         return Clics, Meneos, Noticias, Fechas, Horas
