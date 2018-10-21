@@ -54,14 +54,11 @@ class BeebotteHandler():
 
         print(len(Clicsparcial))
 
-        for index in range(0, len(Clicsparcial)):
+        for index in range(0, len(Clicsparcial)-1):
             print(index)
 
             if index == 0:
                 NoticiaAux = Noticiasparcial[index]
-
-            # print(NoticiaAux)
-            # print(Noticiasparcial[index])
 
             if NoticiaAux != Noticiasparcial[index]:
 
