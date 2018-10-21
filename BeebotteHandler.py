@@ -53,9 +53,11 @@ class BeebotteHandler():
             Horasparcial.append(hora['data'])
 
         for index in range(len(Clicsparcial)):
+            print(index)
+
             if index == 0:
                 NoticiaAux = Noticiasparcial[index]
-             
+
             # print(NoticiaAux)
             # print(Noticiasparcial[index])
 
