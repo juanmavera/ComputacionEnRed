@@ -59,7 +59,7 @@ class BeebotteHandler():
                 NewAnt = noticia[2]
             if NewAnt != noticia[2]:
 
-                print(index, noticia[0], noticia[1], noticia[2], noticia[3], noticia[4])
+                print(index, NewAnt, noticia[0], noticia[1], noticia[2], noticia[3], noticia[4])
 
                 Clics.append(noticia[0])
                 Meneos.append(noticia[1])
