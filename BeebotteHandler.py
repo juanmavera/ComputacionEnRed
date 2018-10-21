@@ -55,13 +55,13 @@ class BeebotteHandler():
         print(len(Clicsparcial))
 
         for index in range(0, len(Clicsparcial)-1):
-            print(index)
+            # print(index)
 
             if index == 0:
                 NoticiaAux = Noticiasparcial[index]
 
             if NoticiaAux != Noticiasparcial[index]:
-
+                print(index)
                 Clics.append(Clicsparcial[index - 1])
                 Meneos.append(Meneosparcial[index - 1])
                 Noticias.append(Noticiasparcial[index - 1])
