@@ -16,14 +16,9 @@ class MongoHandler():
             'Hora': New[4]
         }
 
-        exists = self.db.noticias.find_one({'Noticia': New[2]})
+        print('\nComprobando Noticia\n')
+        self.db.noticias.update_one({'Noticia': New[2]}, {'$set': entrada}, upsert=True) # si no hay match con la noticia la inserta
 
-        if exists is None:
-            self.db.noticias.insert_one(entrada)
-            print('Noticia Insertada')
-        else:
-            self.db.noticias.update_one({'Noticia': New[2]}, {'$set': entrada})
-            print('Noticia actualizada')
-
+        print('\nBase de Datos\n')
         for doc in self.db.noticias.find():
             print(doc)
