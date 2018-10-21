@@ -16,4 +16,14 @@ class MongoHandler():
             'Hora': New[4]
         }
 
-        self.db.noticias.insert_one(entrada)
+        exists = self.db.noticias.find_one({'Noticia': New[2]})
+
+        if exists is None:
+            self.db.noticias.insert_one(entrada)
+            print('Noticia Insertada')
+        else:
+            self.db.noticias.update_one({'Noticia': New[2]}, entrada)
+            print('Noticia actualizada')
+
+        for doc in db.noticias.find():
+            print(doc)
