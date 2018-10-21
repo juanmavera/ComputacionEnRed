@@ -52,6 +52,8 @@ class BeebotteHandler():
         for hora in TotalHoras:
             Horasparcial.append(hora['data'])
 
+        print(len(Clicsparcial))
+        
         for index in range(len(Clicsparcial)):
             print(index)
 
