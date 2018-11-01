@@ -9,6 +9,8 @@ import numpy as np
 
 app = Flask(__name__)
 
+usedDB = True
+
 
 def InitPeriodicDataObtainer():
     Data = DataObtainer()
@@ -46,9 +48,27 @@ def CalculaMedia(Mongo=True):
           'Numero de noticias: %d\n'
           % (mediaClics, mediaMeneos, len(Noticias[2])))
 
+    return mediaClics, mediaMeneos, len(Noticias[2])
 
-@app.route('/')
+
+@app.route('/', methods=['GET','POST'])
 def index():
+    global usedDB
+
+    if request.method is 'POST':
+        boton = request.form['boton']
+        if boton is 'Media':
+            mediaCLics, mediaMeneos, nNoticias = CalculaMedia(Mongo=usedDB)
+            usedDB = not usedDB
+            return render_template('index.html', media=mediaT)
+        elif boton is 'Umbral':
+            valorUmbral = request.form['UmbralText']
+            umbral_superior(valorUmbral)
+            umbral_inferior(valorUmbral)
+            return render_template('index.html', umbrInf=menorMostrar, umbrSup=mayorMostrar)
+        elif boton is 'Grafica':
+            return redirect(url_grafica)
+
     Data = DataObtainer()
     page = Data.get_web()
     Noticia = Data.get_web_data(page)
