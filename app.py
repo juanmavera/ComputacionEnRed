@@ -61,20 +61,32 @@ def index():
             mediaCLics, mediaMeneos, nNoticias = CalculaMedia(Mongo=usedDB)
             usedDB = not usedDB
             return render_template('index.html', media=mediaT)
+
         elif boton is 'Umbral':
             valorUmbral = request.form['UmbralText']
             umbral_superior(valorUmbral)
             umbral_inferior(valorUmbral)
             return render_template('index.html', umbrInf=menorMostrar, umbrSup=mayorMostrar)
+
         elif boton is 'Grafica':
             return redirect(url_grafica)
 
-    Data = DataObtainer()
-    page = Data.get_web()
-    Noticia = Data.get_web_data(page)
+        else:
+            mongoDB = MongoHandler()
+            Noticias = mongoDB.LeerNoticias()
 
-    cadena = "Clicks: %d || Meneos: %d || Noticia: %s || Fecha: %s || Hora: %s" % (int(float(Noticia[0])), int(float(Noticia[1])), str(Noticia[2]), str(Noticia[3]), str(Noticia[4]))
-    return '<p> %s </p>' %(cadena)
+            cadena = []
+            for noticia in Noticias:
+                cadena.append("Clicks: %d || Meneos: %d || Noticia: %s || Fecha: %s || Hora: %s" % (int(float(noticia[0])), int(float(noticia[1])), str(noticia[2]), str(noticia[3]), str(noticia[4])))
+
+            return render_template('index.html', noticias=cadena[-10:-1])
+
+    # Data = DataObtainer()
+    # page = Data.get_web()
+    # Noticia = Data.get_web_data(page)
+    #
+    # cadena = "Clicks: %d || Meneos: %d || Noticia: %s || Fecha: %s || Hora: %s" % (int(float(Noticia[0])), int(float(Noticia[1])), str(Noticia[2]), str(Noticia[3]), str(Noticia[4]))
+    # return '<p> %s </p>' %(cadena)
 
 
 @app.route('/loc')
