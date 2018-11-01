@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Práctica compu super chachi</title>
+	<style>
+		.button {
+			background-color: rgb(80, 255, 80); /* Green */
+			border: none;
+			color: white;
+			width: 128px;
+			height: 64px;
+			/*padding: 16px 32px;*/
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			-webkit-transition-duration: 0.4s; /* Safari */
+			transition-duration: 0.4s;
+			cursor: pointer;
+		}
+
+		.buttonMedia {
+			background-color: gray; 
+			color: black; 
+			border: 2px solid rgb(80, 255, 80);
+		}
+
+		.buttonMedia:hover {
+			background-color: rgb(80, 255, 80);
+			color: white;
+		}
+
+		.buttonUmbral {
+			background-color: gray; 
+			color: black; 
+			border: 2px solid rgb(80, 80, 255);
+		}
+
+		.buttonUmbral:hover {
+			background-color: rgb(80, 80, 255);
+			color: white;
+		}
+		
+		.buttonUmbralAlarma {
+			background-color: gray; 
+			color: black; 
+			border: 2px solid rgb(255, 128, 128);
+		}
+
+		.buttonUmbralAlarma:hover {
+			background-color: rgb(255, 128, 128);
+			color: white;
+		}
+		
+		.buttonGrafica {
+			background-color: gray; 
+			color: black; 
+			border: 2px solid rgb(255, 80, 80);
+		}
+
+		.buttonGrafica:hover {
+			background-color: rgb(255, 80, 80);
+			color: white;
+		}
+	</style>
+</head>
+
+<body>
+	<header style="background-color:rgb(80, 80, 255);color:black;padding:0.5px;">
+		<h1 align="center">Práctica 1</h1>
+		<h2 align="center">Computación en Red</h2>
+		<h3 align="center">Juan Manuel Vera Díaz</h3>
+	</header>
+	<section>
+		<nav style="float: left;width: 200px; height: 500px;background-color:gray;color:black;">
+			<div align= center>
+				<form action="." method="POST">
+					<input class="button buttonMedia" type= "submit" name="boton" value="Media">
+					<input class="button buttonGrafica" type= "submit" name="boton" value="Gráfica">
+					<input class="button buttonUmbral" type= "submit" name="boton" value="Umbral">
+					<input type="text" name="UmbralText">
+					<input class="button buttonUmbralAlarma" type= "submit" name="boton" value="Alarma">
+					<input type="text" name="UmbralText">
+				</form>
+			</div><br>
+		</nav>
+		<article style="float: left;width: 80%;background-color:white;color:black;">
+			<p>Aquí vienen las cositas</p>
+		</article>
+	</section>
+</body>
+
+</html>
