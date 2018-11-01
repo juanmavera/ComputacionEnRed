@@ -74,11 +74,11 @@
 		<h3 align="center">Juan Manuel Vera Díaz</h3>
 	</header>
 	<section>
-		<nav style="float: left;width: 200px; height: 500px;background-color:gray;color:black;">
+		<nav style="float: left;width: 20%; height: 500px;background-color:gray;color:black;">
 			<div align= center>
 				<form action="." method="POST">
 					<input class="button buttonMedia" type= "submit" name="boton" value="Media">
-					<input class="button buttonGrafica" type= "submit" name="boton" value="Gráfica">
+					<input class="button buttonGrafica" type= "submit" name="boton" value="Grafica">
 					<input class="button buttonUmbral" type= "submit" name="boton" value="Umbral">
 					<input type="text" name="UmbralText">
 					<input class="button buttonUmbralAlarma" type= "submit" name="boton" value="Alarma">
@@ -86,8 +86,12 @@
 				</form>
 			</div><br>
 		</nav>
-		<article style="float: left;width: 80%;background-color:white;color:black;">
-			<p>Aquí vienen las cositas</p>
+		<article style="float: left;width: 80%; height: 500px;background-color:pink;color:black;">
+			{% if noticia in noticias %}
+				{% for media %}
+				<p align= center >{{ noticia }}</p>
+				{% end for %}
+			{% endif %}
 		</article>
 	</section>
 </body>
