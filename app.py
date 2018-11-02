@@ -97,7 +97,7 @@ def index():
 
             usedDB = not usedDB
             cadena = []
-            cadena = "Media de Clicks: %.2f || Media Meneos: %.2f || Noticias analizadas: %d || Base de datos utilizada: %s" % (mediaClics, mediaMeneos, nNoticias, BD)
+            cadena = "Media de Clicks: %.2f || Media Meneos: %.2f || Noticias analizadas: %d || Base de datos utilizada: %s\n" % (mediaClics, mediaMeneos, nNoticias, BD)
 
             return render_template('index.html', summaryNews=cadena)
 
@@ -107,7 +107,7 @@ def index():
             Noticias = NoticiasUmbral(umbral=valorUmbral, Mongo=True)
 
             for noticia in Noticias:
-                cadena.append("Clicks: %s || Meneos: %s || Noticia: %s || Fecha: %s || Hora: %s" % (noticia[0], noticia[1], noticia[2], noticia[3], noticia[4]))
+                cadena.append("Clicks: %s || Meneos: %s || Noticia: %s || Fecha: %s || Hora: %s\n" % (noticia[0], noticia[1], noticia[2], noticia[3], noticia[4]))
 
             if len(cadena) < 10:
                 return render_template('index.html', noticias=cadena)
@@ -123,7 +123,7 @@ def index():
 
         cadena = []
         for noticia in Noticias:
-            cadena.append("Clicks: %s || Meneos: %s || Noticia: %s || Fecha: %s || Hora: %s" % (noticia[0], noticia[1], noticia[2], noticia[3], noticia[4]))
+            cadena.append("Clicks: %s || Meneos: %s || Noticia: %s || Fecha: %s || Hora: %s\n" % (noticia[0], noticia[1], noticia[2], noticia[3], noticia[4]))
 
         return render_template('index.html', noticias=cadena[-10:-1])
 
