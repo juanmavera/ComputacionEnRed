@@ -87,14 +87,14 @@
 			</div><br>
 		</nav>
 		<article style="float: left;width: 80%; height: 700px;background-color:pink;color:black;">
-			{% if noticia in noticias %}
-				{% for media %}
+			{% for noticia in noticias %}
 				<p align= center >{{ noticia }}</p>
-				{% end for %}
-			{% endif %}
+			{% endfor %}
 		</article>
 		<article style="float: left;width: 80%; height: 100px;background-color:blue;color:black;">
-			<p align= center >{{ summaryNews }}</p>
+			{% if summaryNews %}
+				<p align= center >{{ summaryNews }}</p>
+			{% endif %}
 		</article>
 	</section>
 </body>
