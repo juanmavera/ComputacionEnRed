@@ -74,7 +74,7 @@
 		<h3 align="center">Juan Manuel Vera Díaz</h3>
 	</header>
 	<section>
-		<nav style="float: left;width: 20%; height: 500px;background-color:gray;color:black;">
+		<nav style="float: left;width: 20%; height: 800px;background-color:gray;color:black;">
 			<div align= center>
 				<form action="." method="POST">
 					<input class="button buttonMedia" type= "submit" name="boton" value="Media">
@@ -86,12 +86,15 @@
 				</form>
 			</div><br>
 		</nav>
-		<article style="float: left;width: 80%; height: 500px;background-color:pink;color:black;">
+		<article style="float: left;width: 80%; height: 700px;background-color:pink;color:black;">
 			{% if noticia in noticias %}
 				{% for media %}
 				<p align= center >{{ noticia }}</p>
 				{% end for %}
 			{% endif %}
+		</article>
+		<article style="float: left;width: 80%; height: 100px;background-color:blue;color:black;">
+			<p align= center >{{ summaryNews }}</p>
 		</article>
 	</section>
 </body>
