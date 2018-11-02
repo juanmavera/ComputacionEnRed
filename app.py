@@ -117,15 +117,15 @@ def index():
         elif boton is 'Grafica':
             return redirect(uri_grafica)
 
-        else:
-            mongoDB = MongoHandler()
-            Noticias = mongoDB.LeerNoticias()
+    else:
+        mongoDB = MongoHandler()
+        Noticias = mongoDB.LeerNoticias()
 
-            cadena = []
-            for noticia in Noticias:
-                cadena.append("Clicks: %d || Meneos: %d || Noticia: %s || Fecha: %s || Hora: %s" % (int(float(noticia[0])), int(float(noticia[1])), str(noticia[2]), str(noticia[3]), str(noticia[4])))
+        cadena = []
+        for noticia in Noticias:
+            cadena.append("Clicks: %d || Meneos: %d || Noticia: %s || Fecha: %s || Hora: %s" % (int(float(noticia[0])), int(float(noticia[1])), str(noticia[2]), str(noticia[3]), str(noticia[4])))
 
-            return render_template('index.html', noticias=cadena[-10:-1])
+        return render_template('index.html', noticias=cadena[-10:-1])
 
     # Data = DataObtainer()
     # page = Data.get_web()
