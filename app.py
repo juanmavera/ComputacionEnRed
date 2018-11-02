@@ -107,7 +107,7 @@ def index():
             Noticias = NoticiasUmbral(umbral=valorUmbral, Mongo=True)
 
             for noticia in Noticias:
-                cadena.append("Clicks: %d || Meneos: %d || Noticia: %s || Fecha: %s || Hora: %s" % (int(float(noticia[0])), int(float(noticia[1])), str(noticia[2]), str(noticia[3]), str(noticia[4])))
+                cadena.append("Clicks: %s || Meneos: %s || Noticia: %s || Fecha: %s || Hora: %s" % (str(noticia[0]), str(noticia[1]), str(noticia[2]), str(noticia[3]), str(noticia[4])))
 
             if len(cadena) < 10:
                 return render_template('index.html', noticias=cadena)
@@ -123,7 +123,7 @@ def index():
 
         cadena = []
         for noticia in Noticias:
-            cadena.append("Clicks: %d || Meneos: %d || Noticia: %s || Fecha: %s || Hora: %s" % (int(float(noticia[0])), int(float(noticia[1])), str(noticia[2]), str(noticia[3]), str(noticia[4])))
+            cadena.append("Clicks: %d || Meneos: %d || Noticia: %s || Fecha: %s || Hora: %s" % (str(noticia[0]), str(noticia[1]), str(noticia[2]), str(noticia[3]), str(noticia[4])))
 
         return render_template('index.html', noticias=cadena[-10:-1])
 
