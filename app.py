@@ -84,9 +84,9 @@ def index():
     global usedDB
     uri_grafica = "https://beebotte.com/dash/1d32c290-d561-11e8-b923-173fcb1c50d5?shareid=shareid_4xcsYsSRzoGqMlN6"
 
-    if request.method is 'POST':
+    if request.method == 'POST':
         boton = request.form['boton']
-        if boton is 'Media':
+        if boton == 'Media':
             mediaClics, mediaMeneos, nNoticias = CalculaMedia(Mongo=usedDB)
 
             if usedDB:
@@ -100,7 +100,7 @@ def index():
 
             return render_template('index.html', summaryNews=cadena)
 
-        elif boton is 'Umbral':
+        elif boton == 'Umbral':
             valorUmbral = request.form['UmbralText']
             cadena = []
             Noticias = NoticiasUmbral(umbral=valorUmbral, Mongo=True)
@@ -114,7 +114,7 @@ def index():
             else:
                 return render_template('index.html', noticias=cadena[-10:-1])
 
-        elif boton is 'Grafica':
+        elif boton == 'Grafica':
             return redirect(uri_grafica)
 
     else:
