@@ -10,6 +10,7 @@ import numpy as np
 app = Flask(__name__)
 
 usedDB = True
+uri_grafica = 'https://beebotte.com/dash/1d32c290-d561-11e8-b923-173fcb1c50d5?shareid=shareid_4xcsYsSRzoGqMlN6'
 
 
 def InitPeriodicDataObtainer():
@@ -51,25 +52,70 @@ def CalculaMedia(Mongo=True):
     return mediaClics, mediaMeneos, len(Noticias[2])
 
 
+def NoticiasUmbral(umbral, Mongo=True):
+    if Mongo:
+        mongoDB = MongoHandler()
+        Noticias = mongoDB.LeerNoticias()
+
+    else:
+        bbtDB = BeebotteHandler()
+        Noticias = bbtDB.LeerNoticias()
+
+    # mediaClics = np.mean(Noticias[0])
+    # mediaMeneos = np.mean(Noticias[1])
+
+    umbralNoticias = []
+    # print('\nNoticias\n--------\n')
+    for noticia in Noticias[2]:
+        if noticia[0] > umbral:
+            umbralNoticias.append(noticia)
+            print(noticia[2])
+
+    # print('\n\nEstadisticas\n------------\n')
+    # print('Numero medio de clics obtenidos: %.2f\n'
+    #       'Numero medio de meneos obtenidos: %.2f\n'
+    #       'Numero de noticias: %d\n'
+    #       % (mediaClics, mediaMeneos, len(Noticias[2])))
+
+    return umbralNoticias
+
+
 @app.route('/', methods=['GET','POST'])
 def index():
     global usedDB
+    global uri_grafica
 
     if request.method is 'POST':
         boton = request.form['boton']
         if boton is 'Media':
-            mediaCLics, mediaMeneos, nNoticias = CalculaMedia(Mongo=usedDB)
+            mediaClics, mediaMeneos, nNoticias = CalculaMedia(Mongo=usedDB)
+
+            if usedDB:
+                BD = 'Mongo DB'
+            else:
+                BD = 'BeeBotte DB'
+
             usedDB = not usedDB
-            return render_template('index.html', media=mediaT)
+            cadena = []
+            cadena = "Media de Clicks: %.2f || Media Meneos: %.2f || Noticias analizadas: %d || Base de datos utilizada: %s" % (mediaClics, mediaMeneos, nNoticias, BD)
+
+            return render_template('index.html', summaryNews=cadena)
 
         elif boton is 'Umbral':
             valorUmbral = request.form['UmbralText']
-            umbral_superior(valorUmbral)
-            umbral_inferior(valorUmbral)
-            return render_template('index.html', umbrInf=menorMostrar, umbrSup=mayorMostrar)
+            cadena = []
+            Noticias = NoticiasUmbral(umbral=valorUmbral, Mongo=True)
+
+            for noticia in Noticias:
+                cadena.append("Clicks: %d || Meneos: %d || Noticia: %s || Fecha: %s || Hora: %s" % (int(float(noticia[0])), int(float(noticia[1])), str(noticia[2]), str(noticia[3]), str(noticia[4])))
+
+            if len(cadena) < 10:
+                return render_template('index.html', noticias=cadena)
+            else:
+                return render_template('index.html', noticias=cadena[-10:-1])
 
         elif boton is 'Grafica':
-            return redirect(url_grafica)
+            return redirect(uri_grafica)
 
         else:
             mongoDB = MongoHandler()
