@@ -10,7 +10,6 @@ import numpy as np
 app = Flask(__name__)
 
 usedDB = True
-uri_grafica = 'https://beebotte.com/dash/1d32c290-d561-11e8-b923-173fcb1c50d5?shareid=shareid_4xcsYsSRzoGqMlN6'
 
 
 def InitPeriodicDataObtainer():
@@ -83,7 +82,7 @@ def NoticiasUmbral(umbral, Mongo=True):
 @app.route('/', methods=['GET','POST'])
 def index():
     global usedDB
-    global uri_grafica
+    uri_grafica = "https://beebotte.com/dash/1d32c290-d561-11e8-b923-173fcb1c50d5?shareid=shareid_4xcsYsSRzoGqMlN6"
 
     if request.method is 'POST':
         boton = request.form['boton']
@@ -107,7 +106,8 @@ def index():
             Noticias = NoticiasUmbral(umbral=valorUmbral, Mongo=True)
 
             for noticia in Noticias:
-                cadena.append("Clicks: %s || Meneos: %s || Noticia: %s || Fecha: %s || Hora: %s\n" % (noticia[0], noticia[1], noticia[2], noticia[3], noticia[4]))
+                # cadena.append("Clicks: %s || Meneos: %s || Noticia: %s || Fecha: %s || Hora: %s\n" % (noticia[0], noticia[1], noticia[2], noticia[3], noticia[4]))
+                cadena.append("Clicks: %s\n" % (noticia[0]))
 
             if len(cadena) < 10:
                 return render_template('index.html', noticias=cadena)
@@ -123,7 +123,8 @@ def index():
 
         cadena = []
         for noticia in Noticias:
-            cadena.append("Clicks: %s || Meneos: %s || Noticia: %s || Fecha: %s || Hora: %s\n" % (noticia[0], noticia[1], noticia[2], noticia[3], noticia[4]))
+            # cadena.append("Clicks: %s || Meneos: %s || Noticia: %s || Fecha: %s || Hora: %s\n" % (noticia[0], noticia[1], noticia[2], noticia[3], noticia[4]))
+            cadena.append("Clicks: %s" % (noticia[0]))
 
         return render_template('index.html', noticias=cadena[-10:-1])
 
