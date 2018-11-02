@@ -75,16 +75,14 @@
 	</header>
 	<section>
 		<nav style="float: left;width: 20%; height: 800px;background-color:gray;color:black;">
-			<div align= center>
-				<form action="." method="POST">
-					<input class="button buttonMedia" type= "submit" name="boton" value="Media">
-					<input class="button buttonGrafica" type= "submit" name="boton" value="Grafica">
-					<input class="button buttonUmbral" type= "submit" name="boton" value="Umbral">
-					<input type="text" name="UmbralText">
-					<input class="button buttonUmbralAlarma" type= "submit" name="boton" value="Alarma">
-					<input type="text" name="UmbralText">
-				</form>
-			</div><br>
+			<form action="." method="POST">
+				<input class="button buttonMedia" type= "submit" name="boton" value="Media">
+				<input class="button buttonGrafica" type= "submit" name="boton" value="Grafica">
+				<input class="button buttonUmbral" type= "submit" name="boton" value="Umbral">
+				<input type="text" name="UmbralText">
+				<input class="button buttonUmbralAlarma" type= "submit" name="boton" value="Alarma">
+				<input type="text" name="UmbralAlarma">
+			</form>
 		</nav>
 		<article style="float: left;width: 80%; height: 700px;background-color:pink;color:black;">
 			{% for noticia in noticias %}
