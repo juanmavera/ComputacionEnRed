@@ -142,9 +142,9 @@ def location():
 
 if __name__ == '__main__':
 
-    InitPeriodicDataObtainer()
-    CalculaMedia(Mongo=True)
-    CalculaMedia(Mongo=False)
+    # InitPeriodicDataObtainer()
+    # CalculaMedia(Mongo=True)
+    # CalculaMedia(Mongo=False)
 
-    # app.debug = True
-    # app.run(host='0.0.0.0')
+    app.debug = True
+    app.run(host='0.0.0.0')
