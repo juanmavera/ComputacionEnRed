@@ -123,7 +123,7 @@ def index():
 
         cadena = []
         for noticia in Noticias:
-            cadena.append("Clicks: %d || Meneos: %d || Noticia: %s || Fecha: %s || Hora: %s" % (str(noticia[0]), str(noticia[1]), str(noticia[2]), str(noticia[3]), str(noticia[4])))
+            cadena.append("Clicks: %s || Meneos: %s || Noticia: %s || Fecha: %s || Hora: %s" % (str(noticia[0]), str(noticia[1]), str(noticia[2]), str(noticia[3]), str(noticia[4])))
 
         return render_template('index.html', noticias=cadena[-10:-1])
 
