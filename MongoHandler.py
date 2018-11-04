@@ -6,7 +6,7 @@ from pymongo import MongoClient
 class MongoHandler():
     def __init__(self):
         self.client = MongoClient()
-        self.db = self.client.prueba
+        self.db = self.client.CompuP1
 
     def InsertNew(self, New):
 
