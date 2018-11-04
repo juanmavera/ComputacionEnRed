@@ -74,7 +74,7 @@
 		<h3 align="center">Juan Manuel Vera Díaz</h3>
 	</header>
 	<section>
-		<nav style="float: left;width: 20%; height: 800px;background-color:gray;color:black;">
+		<nav style="float: left;width: 20%; height: 600px;background-color:gray;color:black;">
 			<form action="." method="POST">
 				<input class="button buttonMedia" type= "submit" name="boton" value="Media">
 				<input class="button buttonGrafica" type= "submit" name="boton" value="Grafica">
@@ -84,35 +84,35 @@
 				<input type="text" name="UmbralAlarma">
 			</form>
 		</nav>
-		<article style="float: left;width: 5%; height: 700px;background-color:pink;color:black;">
+		<article style="float: left;width: 5%; height: 500px;background-color:pink;color:black;">
 			<span>
 				{% for clic in clics %}
 					<p align= left > Clics: {{ clic }}</p>
 				{% endfor %}
 			</span>
 		</article>
-		<article style="float: left;width: 5%; height: 700px;background-color:pink;color:black;">
+		<article style="float: left;width: 5%; height: 500px;background-color:pink;color:black;">
 			<span>
 				{% for meneo in meneos %}
 					<p align= left > Meneos: {{ meneo }}</p>
 				{% endfor %}
 			</span>
 		</article>
-		<article style="float: left;width: 37.5%; height: 700px;background-color:pink;color:black;">
+		<article style="float: left;width: 37.5%; height: 500px;background-color:pink;color:black;">
 			<span>
 				{% for noticia in noticias %}
 					<p align= left > Noticia: {{ noticia }}</p>
 				{% endfor %}
 			</span>
 		</article>
-		<article style="float: left;width: 10%; height: 700px;background-color:pink;color:black;">
+		<article style="float: left;width: 10%; height: 500px;background-color:pink;color:black;">
 			<span>
 				{% for hora in horas %}
 					<p align= left > Hora: {{ hora }}</p>
 				{% endfor %}
 			</span>
 		</article>
-		<article style="float: left;width: 22.5%; height: 700px;background-color:pink;color:black;">
+		<article style="float: left;width: 22.5%; height: 500px;background-color:pink;color:black;">
 			<span>
 				{% for fecha in fechas %}
 					<p align= left > Fecha: {{ fecha }}</p>
