@@ -29,60 +29,61 @@ def InitPeriodicDataObtainer():
 def CalculaMedia(Mongo=True):
     if Mongo:
         mongoDB = MongoHandler()
-        Noticias = mongoDB.LeerNoticias()
+        Clics, Meneos, Noticias, _, _ = mongoDB.LeerNoticias()
 
     else:
         bbtDB = BeebotteHandler()
-        Noticias = bbtDB.LeerNoticias()
+        Clics, Meneos, Noticias, _, _ = bbtDB.LeerNoticias()
 
-    mediaClics = np.mean(Noticias[0])
-    mediaMeneos = np.mean(Noticias[1])
+    mediaClics = np.mean(Clics)
+    mediaMeneos = np.mean(Meneos)
 
     print('\nNoticias\n--------\n')
-    for noticia in Noticias[2]:
+    for noticia in Noticias:
         print(noticia)
 
     print('\n\nEstadisticas\n------------\n')
     print('Numero medio de clics obtenidos: %.2f\n'
           'Numero medio de meneos obtenidos: %.2f\n'
           'Numero de noticias: %d\n'
-          % (mediaClics, mediaMeneos, len(Noticias[2])))
+          % (mediaClics, mediaMeneos, len(Noticias)))
 
-    return mediaClics, mediaMeneos, len(Noticias[2])
+    return mediaClics, mediaMeneos, len(Noticias)
 
 
 def NoticiasUmbral(umbral, Mongo=True):
     if Mongo:
         mongoDB = MongoHandler()
-        Noticias = mongoDB.LeerNoticias()
+        Clics, Meneos, Noticias, Fechas, Horas = mongoDB.LeerNoticias()
 
     else:
         bbtDB = BeebotteHandler()
-        Noticias = bbtDB.LeerNoticias()
+        Clics, Meneos, Noticias, Fechas, Horas = bbtDB.LeerNoticias()
 
-    # mediaClics = np.mean(Noticias[0])
-    # mediaMeneos = np.mean(Noticias[1])
+    zipNoticias = list(zip(Clics, Meneos, Noticias, Horas, Fechas))
 
-    umbralNoticias = []
-    # print('\nNoticias\n--------\n')
-    for noticia in Noticias[2]:
-        if noticia[0] > umbral:
-            umbralNoticias.append(noticia)
-            print(noticia[2])
+    Clic = []
+    Meneo = []
+    Noticia = []
+    Hora = []
+    Fecha = []
 
-    # print('\n\nEstadisticas\n------------\n')
-    # print('Numero medio de clics obtenidos: %.2f\n'
-    #       'Numero medio de meneos obtenidos: %.2f\n'
-    #       'Numero de noticias: %d\n'
-    #       % (mediaClics, mediaMeneos, len(Noticias[2])))
+    for noticia in zipNoticias:
+        print(noticia)
+        if int(noticia[0]) > int(umbral):
+            print(noticia)
+            Clic.append(noticia[0])
+            Meneo.append(noticia[1])
+            Noticia.append(noticia[2])
+            Hora.append(noticia[3])
+            Fecha.append(noticia[4])
 
-    return umbralNoticias
-
+    return Clic, Meneo, Noticia, Hora, Fecha
 
 @app.route('/', methods=['GET','POST'])
 def index():
     global usedDB
-    uri_grafica = "https://beebotte.com/dash/1d32c290-d561-11e8-b923-173fcb1c50d5?shareid=shareid_4xcsYsSRzoGqMlN6"
+    uri_grafica = "https://beebotte.com/dash/b2228cc0-e059-11e8-a9e5-9db85b2d1393?shareid=shareid_CO5OcpPIrqxkuoip"
 
     if request.method == 'POST':
         boton = request.form['boton']
@@ -95,46 +96,25 @@ def index():
                 BD = 'BeeBotte DB'
 
             usedDB = not usedDB
-            cadena = []
             cadena = "Media de Clicks: %.2f || Media Meneos: %.2f || Noticias analizadas: %d || Base de datos utilizada: %s\n" % (mediaClics, mediaMeneos, nNoticias, BD)
 
             return render_template('index.html', summaryNews=cadena)
 
         elif boton == 'Umbral':
             valorUmbral = request.form['UmbralText']
-            cadena = []
-            Noticias = NoticiasUmbral(umbral=valorUmbral, Mongo=True)
 
-            for noticia in Noticias:
-                # cadena.append("Clicks: %s || Meneos: %s || Noticia: %s || Fecha: %s || Hora: %s\n" % (noticia[0], noticia[1], noticia[2], noticia[3], noticia[4]))
-                cadena.append("Clicks: %s\n" % (noticia[0]))
+            Clics, Meneos, Noticias, Fechas, Horas = NoticiasUmbral(umbral=valorUmbral, Mongo=True)
 
-            if len(cadena) < 10:
-                return render_template('index.html', noticias=cadena)
-            else:
-                return render_template('index.html', noticias=cadena[-10:-1])
+            return render_template('index.html', clics=Clics[-10:-1], meneos=Meneos[-10:-1], noticias=Noticias[-10:-1], fechas=Fechas[-10:-1], horas=Horas[-10:-1])
 
         elif boton == 'Grafica':
             return redirect(uri_grafica)
 
     else:
         mongoDB = MongoHandler()
-        Noticias = mongoDB.LeerNoticias()
+        Clics, Meneos, Noticias, Fechas, Horas = mongoDB.LeerNoticias()
 
-        cadena = []
-        for noticia in Noticias:
-            # cadena.append("Clicks: %s || Meneos: %s || Noticia: %s || Fecha: %s || Hora: %s\n" % (noticia[0], noticia[1], noticia[2], noticia[3], noticia[4]))
-            cadena.append("Clicks: %s" % (noticia[0]))
-
-        return render_template('index.html', noticias=cadena[-10:-1])
-
-    # Data = DataObtainer()
-    # page = Data.get_web()
-    # Noticia = Data.get_web_data(page)
-    #
-    # cadena = "Clicks: %d || Meneos: %d || Noticia: %s || Fecha: %s || Hora: %s" % (int(float(Noticia[0])), int(float(Noticia[1])), str(Noticia[2]), str(Noticia[3]), str(Noticia[4]))
-    # return '<p> %s </p>' %(cadena)
-
+        return render_template('index.html', clics=Clics[-10:-1], meneos=Meneos[-10:-1], noticias=Noticias[-10:-1], fechas=Fechas[-10:-1], horas=Horas[-10:-1])
 
 @app.route('/loc')
 def location():
@@ -144,8 +124,6 @@ def location():
 if __name__ == '__main__':
 
     InitPeriodicDataObtainer()
-    # CalculaMedia(Mongo=True)
-    # CalculaMedia(Mongo=False)
 
     app.debug = True
     app.run(host='0.0.0.0')
