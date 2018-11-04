@@ -84,10 +84,40 @@
 				<input type="text" name="UmbralAlarma">
 			</form>
 		</nav>
-		<article style="float: left;width: 80%; height: 700px;background-color:pink;color:black;">
-			{% for noticia in noticias %}
-				<p align= center >{{ noticia }}</p>
-			{% endfor %}
+		<article style="float: left;width: 5%; height: 700px;background-color:pink;color:black;">
+			<span>
+				{% for clic in clics %}
+					<p align= left > Clics: {{ clic }}</p>
+				{% endfor %}
+			</span>
+		</article>
+		<article style="float: left;width: 5%; height: 700px;background-color:pink;color:black;">
+			<span>
+				{% for meneo in meneos %}
+					<p align= left > Meneos: {{ meneo }}</p>
+				{% endfor %}
+			</span>
+		</article>
+		<article style="float: left;width: 37.5%; height: 700px;background-color:pink;color:black;">
+			<span>
+				{% for noticia in noticias %}
+					<p align= left > Noticia: {{ noticia }}</p>
+				{% endfor %}
+			</span>
+		</article>
+		<article style="float: left;width: 10%; height: 700px;background-color:pink;color:black;">
+			<span>
+				{% for hora in horas %}
+					<p align= left > Hora: {{ hora }}</p>
+				{% endfor %}
+			</span>
+		</article>
+		<article style="float: left;width: 22.5%; height: 700px;background-color:pink;color:black;">
+			<span>
+				{% for fecha in fechas %}
+					<p align= left > Fecha: {{ fecha }}</p>
+				{% endfor %}
+			</span>
 		</article>
 		<article style="float: left;width: 80%; height: 100px;background-color:blue;color:black;">
 			{% if summaryNews %}
