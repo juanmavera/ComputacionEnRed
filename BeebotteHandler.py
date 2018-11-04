@@ -5,7 +5,7 @@ class BeebotteHandler():
         self.api_key = 'QNMGqaXUTizwYJC7ly4rCswl'
         self.secret_key = 'hUVA4I7F76tIWIYW4qpx3jZRPdrxt7Sg'
         self.client = BBT(self.api_key, self.secret_key)
-        self.channel = 'prueba'
+        self.channel = 'CompuP1'
 
     def InsertNew(self, New):
 
