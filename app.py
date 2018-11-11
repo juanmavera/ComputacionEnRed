@@ -96,9 +96,13 @@ def index():
                 BD = 'BeeBotte DB'
 
             usedDB = not usedDB
+
+            mongoDB = MongoHandler()
+            Clics, Meneos, Noticias, Fechas, Horas = mongoDB.LeerNoticias()
+
             cadena = "Media de Clicks: %.2f || Media Meneos: %.2f || Noticias analizadas: %d || Base de datos utilizada: %s\n" % (mediaClics, mediaMeneos, nNoticias, BD)
 
-            return render_template('index.html', summaryNews=cadena)
+            return render_template('index.html', summaryNews=cadena, clics=Clics[-10:], meneos=Meneos[-10:], noticias=Noticias[-10:], fechas=Fechas[-10:], horas=Horas[-10:])
 
         elif boton == 'Umbral':
             valorUmbral = request.form['UmbralText']
