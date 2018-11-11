@@ -105,7 +105,7 @@ def index():
 
             Clics, Meneos, Noticias, Fechas, Horas = NoticiasUmbral(umbral=valorUmbral, Mongo=True)
 
-            return render_template('index.html', clics=Clics[-10:-1], meneos=Meneos[-10:-1], noticias=Noticias[-10:-1], fechas=Fechas[-10:-1], horas=Horas[-10:-1])
+            return render_template('index.html', clics=Clics[-10:], meneos=Meneos[-10:], noticias=Noticias[-10:], fechas=Fechas[-10:], horas=Horas[-10:])
 
         elif boton == 'Grafica':
             return redirect(uri_grafica)
@@ -114,7 +114,7 @@ def index():
         mongoDB = MongoHandler()
         Clics, Meneos, Noticias, Fechas, Horas = mongoDB.LeerNoticias()
 
-        return render_template('index.html', clics=Clics[-10:-1], meneos=Meneos[-10:-1], noticias=Noticias[-10:-1], fechas=Fechas[-10:-1], horas=Horas[-10:-1])
+        return render_template('index.html', clics=Clics[-10:], meneos=Meneos[-10:], noticias=Noticias[-10:], fechas=Fechas[-10:], horas=Horas[-10:])
 
 @app.route('/loc')
 def location():
