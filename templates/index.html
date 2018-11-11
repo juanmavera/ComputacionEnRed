@@ -2,10 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Práctica compu super chachi</title>
+<title>Computación en Red - P1</title>
 	<style>
 		.button {
-			background-color: rgb(80, 255, 80); /* Green */
 			border: none;
 			color: white;
 			width: 128px;
@@ -22,7 +21,6 @@
 		}
 
 		.buttonMedia {
-			background-color: gray; 
 			color: black; 
 			border: 2px solid rgb(80, 255, 80);
 		}
@@ -33,7 +31,6 @@
 		}
 
 		.buttonUmbral {
-			background-color: gray; 
 			color: black; 
 			border: 2px solid rgb(80, 80, 255);
 		}
@@ -44,7 +41,6 @@
 		}
 		
 		.buttonUmbralAlarma {
-			background-color: gray; 
 			color: black; 
 			border: 2px solid rgb(255, 128, 128);
 		}
@@ -55,7 +51,6 @@
 		}
 		
 		.buttonGrafica {
-			background-color: gray; 
 			color: black; 
 			border: 2px solid rgb(255, 80, 80);
 		}
@@ -65,61 +60,63 @@
 			color: white;
 		}
 	</style>
+	<!-- <script charset="UTF-8" src="//cdn.sendpulse.com/js/push/231ade6dd6fcd42db96e20da8c62be18_0.js" async></script> -->
 </head>
 
-<body>
-	<header style="background-color:rgb(80, 80, 255);color:black;padding:0.5px;">
-		<h1 align="center">Práctica 1</h1>
-		<h2 align="center">Computación en Red</h2>
-		<h3 align="center">Juan Manuel Vera Díaz</h3>
+<body style="background-color: rgba(10, 10, 10, 0.1)">
+	<header style="color:black;padding:0.5px;">
+		<h1 align="center">Computación en Red: Práctica 1</h1>
+		<h4 align="center">Juan Manuel Vera Díaz</h4>
 	</header>
 	<section>
-		<nav style="float: left;width: 20%; height: 600px;background-color:gray;color:black;">
+		<nav style="float: left;width: 20%; height: 600px;color:black;">
 			<form action="." method="POST">
 				<input class="button buttonMedia" type= "submit" name="boton" value="Media">
 				<input class="button buttonGrafica" type= "submit" name="boton" value="Grafica">
 				<input class="button buttonUmbral" type= "submit" name="boton" value="Umbral">
 				<input type="text" name="UmbralText">
+				<!-- 
 				<input class="button buttonUmbralAlarma" type= "submit" name="boton" value="Alarma">
 				<input type="text" name="UmbralAlarma">
+				-->
 			</form>
 		</nav>
-		<article style="float: left;width: 5%; height: 500px;background-color:pink;color:black;">
+		<article style="float: left;width: 5%; height: 500px;color:black;">
 			<span>
 				{% for clic in clics %}
 					<p align= left > Clics: {{ clic }}</p>
 				{% endfor %}
 			</span>
 		</article>
-		<article style="float: left;width: 5%; height: 500px;background-color:pink;color:black;">
+		<article style="float: left;width: 5%; height: 500px;color:black;">
 			<span>
 				{% for meneo in meneos %}
 					<p align= left > Meneos: {{ meneo }}</p>
 				{% endfor %}
 			</span>
 		</article>
-		<article style="float: left;width: 37.5%; height: 500px;background-color:pink;color:black;">
+		<article style="float: left;width: 40%; height: 500px;color:black;">
 			<span>
 				{% for noticia in noticias %}
 					<p align= left > Noticia: {{ noticia }}</p>
 				{% endfor %}
 			</span>
 		</article>
-		<article style="float: left;width: 10%; height: 500px;background-color:pink;color:black;">
+		<article style="float: left;width: 10%; height: 500px;color:black;">
 			<span>
 				{% for hora in horas %}
 					<p align= left > Hora: {{ hora }}</p>
 				{% endfor %}
 			</span>
 		</article>
-		<article style="float: left;width: 22.5%; height: 500px;background-color:pink;color:black;">
+		<article style="float: left;width: 20%; height: 500px;color:black;">
 			<span>
 				{% for fecha in fechas %}
 					<p align= left > Fecha: {{ fecha }}</p>
 				{% endfor %}
 			</span>
 		</article>
-		<article style="float: left;width: 80%; height: 100px;background-color:blue;color:black;">
+		<article style="float: left;width: 80%; height: 100px;color:black;">
 			{% if summaryNews %}
 				<p align= center >{{ summaryNews }}</p>
 			{% endif %}
